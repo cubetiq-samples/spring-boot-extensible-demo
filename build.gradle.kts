@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    api(project(":modules:plugin-context"))
+    api(project(":modules:spring-plugin-context"))
 
     // Load to classpath
     runtimeOnly(project(":modules:my-plugin-1"))
