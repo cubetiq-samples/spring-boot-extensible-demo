@@ -257,6 +257,23 @@ class MySpringPluginContext(
 }
 ```
 
+# Example with curl
+
+End Point: http://localhost:8080/my-plugin-1
+```shell
+curl http://localhost:8080/my-plugin-1 | json_pp
+```
+
+End Point: http://localhost:8080/install/com.cubetiq.plugin.MyCustomPlugin1
+```shell
+curl http://localhost:8080/install/com.cubetiq.plugin.MyCustomPlugin1 | json_pp
+```
+
+End Point: http://localhost:8080/scan/com.cubetiq.plugin
+```shell
+curl http://localhost:8080/scan/com.cubetiq.plugin | json_pp
+```
+
 # Development
 ```shell
 git clone https://git.cubetiqs.com/cubetiq/spring-function-custom-demo.git
