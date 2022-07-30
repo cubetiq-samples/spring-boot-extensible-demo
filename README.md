@@ -1,9 +1,11 @@
 # Spring Function Custom Demo
 
 Includes:
+
 - Serverless Function
 
 [ServerlessContext Interface:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/ServerlessContext.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -17,6 +19,7 @@ interface ServerlessContext {
 ```
 
 [PluginEntry Interface:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/PluginEntry.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -26,6 +29,7 @@ interface PluginEntry {
 ```
 
 [MyServerlessPlugin Inteface:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/MyServerlessPlugin.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -35,6 +39,7 @@ interface MyServerlessPlugin : PluginEntry {
 ```
 
 [MyServerlessLoader Object:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/MyServerlessLoader.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -46,6 +51,7 @@ object MyServerlessLoader {
 ```
 
 [MyServerlessFactory Object:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/MyServerlessFactory.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -91,6 +97,7 @@ object MyServerlessFactory {
 ```
 
 [Pluggable Annotation:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/Pluggable.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context
 
@@ -102,6 +109,7 @@ annotation class Pluggable(
 ```
 
 [MyCustomPlugin1 Class:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/my-plugin-1/src/main/kotlin/com/cubetiqs/plugin/MyCustomPlugin1.kt)
+
 ```kotlin
 package com.cubetiqs.plugin
 
@@ -123,6 +131,7 @@ class MyCustomPlugin1 : MyServerlessPlugin {
 ```
 
 [MyCustomPlugin2 Class:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/my-plugin-2/src/main/kotlin/com/cubetiqs/plugin/MyCustomPlugin2.kt)
+
 ```kotlin
 package com.cubetiqs.plugin
 
@@ -144,6 +153,7 @@ class MyCustomPlugin2 : MyServerlessPlugin {
 ```
 
 [MyCustomPlugin3 Class:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/my-plugin-3/src/main/kotlin/com/cubetiqs/plugin/MyCustomPlugin3.kt)
+
 ```kotlin
 package com.cubetiqs.plugin
 
@@ -165,6 +175,7 @@ class MyCustomPlugin3 : MyServerlessPlugin {
 ```
 
 [SpringServerlessContext Interface:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/modules/spring-plugin-context/src/main/kotlin/com/cubetiqs/plugin/context/spring/SpringServerlessContext.kt)
+
 ```kotlin
 package com.cubetiqs.plugin.context.spring
 
@@ -177,6 +188,7 @@ interface SpringServerlessContext : ServerlessContext {
 ```
 
 [SpringFunctionCustomDemoApplication:](https://git.cubetiqs.com/cubetiq/spring-function-custom-demo/src/branch/main/src/main/kotlin/com/cubetiqs/springfunctioncustomdemo/SpringFunctionCustomDemoApplication.kt)
+
 ```kotlin
 package com.cubetiqs.springfunctioncustomdemo
 
@@ -260,24 +272,29 @@ class MySpringPluginContext(
 # Example with curl
 
 End Point: http://localhost:8080/my-plugin-1
+
 ```shell
-curl http://localhost:8080/my-plugin-1 | json_pp
+curl http://localhost:8080/plugin/my-plugin-1 | json_pp
 ```
 
 End Point: http://localhost:8080/install/com.cubetiq.plugin.MyCustomPlugin1
+
 ```shell
-curl http://localhost:8080/install/com.cubetiq.plugin.MyCustomPlugin1 | json_pp
+curl http://localhost:8080/plugin/install/com.cubetiq.plugin.MyCustomPlugin1 | json_pp
 ```
 
 End Point: http://localhost:8080/scan/com.cubetiq.plugin
+
 ```shell
-curl http://localhost:8080/scan/com.cubetiq.plugin | json_pp
+curl http://localhost:8080/plugin/scan/com.cubetiq.plugin | json_pp
 ```
 
 # Development
+
 ```shell
 git clone https://git.cubetiqs.com/cubetiq/spring-function-custom-demo.git
 ```
 
 ### Contributors
+
 - Sambo Chea <sombochea@cubetiqs.com>

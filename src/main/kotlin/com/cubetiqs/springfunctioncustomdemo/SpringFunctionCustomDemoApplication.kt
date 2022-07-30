@@ -2,14 +2,12 @@ package com.cubetiqs.springfunctioncustomdemo
 
 import com.cubetiqs.plugin.context.MyServerlessFactory
 import com.cubetiqs.plugin.context.MyServerlessLoader
-import com.cubetiqs.plugin.context.ServerlessContext
 import com.cubetiqs.plugin.context.spring.SpringServerlessContext
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
-import org.springframework.context.annotation.ComponentScan
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -26,20 +24,20 @@ fun main(args: Array<String>) {
 }
 
 @RestController
+@RequestMapping("/plugin")
 class ServerlessServerController @Autowired constructor(
     private val applicationContext: ApplicationContext,
 ) {
-    @RequestMapping("/plugin/{plugin}")
+    @RequestMapping("/{plugin}")
     fun serve(
         @PathVariable plugin: String,
         request: HttpServletRequest,
         response: HttpServletResponse,
     ) {
-        val body =
-            MyServerlessLoader.serve(
-                MyServerlessFactory.load(plugin),
-                MySpringPluginContext(request = request, response = response, context = applicationContext)
-            )
+        val body = MyServerlessLoader.serve(
+            MyServerlessFactory.load(plugin),
+            MySpringPluginContext(request = request, response = response, context = applicationContext)
+        )
         jacksonObjectMapper().writeValue(response.outputStream, body)
     }
 
