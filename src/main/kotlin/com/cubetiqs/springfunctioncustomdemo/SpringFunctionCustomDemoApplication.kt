@@ -9,13 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@SpringBootApplication
+@SpringBootApplication(
+    scanBasePackages = ["com.cubetiqs.springfunctioncustomdemo"]
+)
 class SpringFunctionCustomDemoApplication
 
 fun main(args: Array<String>) {
@@ -26,7 +29,7 @@ fun main(args: Array<String>) {
 class ServerlessServerController @Autowired constructor(
     private val applicationContext: ApplicationContext,
 ) {
-    @RequestMapping("/{plugin}")
+    @RequestMapping("/plugin/{plugin}")
     fun serve(
         @PathVariable plugin: String,
         request: HttpServletRequest,
