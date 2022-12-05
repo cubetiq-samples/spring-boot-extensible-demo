@@ -38,4 +38,12 @@ object MyServerlessFactory {
         val reflections = Reflections(packageName)
         return reflections.getTypesAnnotatedWith(Pluggable(install = true))
     }
+
+    fun scanPackages(): Set<Class<*>> {
+        return scanPackages("com.cubetiqs.plugin")
+    }
+
+    fun getPlugins(): Set<MyServerlessPlugin> {
+        return plugins.values.toSet()
+    }
 }

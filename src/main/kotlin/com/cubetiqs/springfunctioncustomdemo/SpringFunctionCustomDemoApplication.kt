@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.springframework.web.bind.annotation.GetMapping
 
 @SpringBootApplication(
     scanBasePackages = ["com.cubetiqs.springfunctioncustomdemo"]
@@ -28,6 +29,11 @@ fun main(args: Array<String>) {
 class ServerlessServerController @Autowired constructor(
     private val applicationContext: ApplicationContext,
 ) {
+    @GetMapping
+    fun getPlugins(): Any {
+        return MyServerlessFactory.getPlugins()
+    }
+
     @RequestMapping("/{plugin}")
     fun serve(
         @PathVariable plugin: String,
