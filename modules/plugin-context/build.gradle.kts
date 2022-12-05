@@ -7,8 +7,8 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
-    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+    // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
+    compileOnly("jakarta.servlet:jakarta.servlet-api:6.0.0")
 
     // https://mvnrepository.com/artifact/org.reflections/reflections
     implementation("org.reflections:reflections:0.10.2")
