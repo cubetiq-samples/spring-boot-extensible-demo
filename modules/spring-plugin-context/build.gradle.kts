@@ -10,5 +10,5 @@ dependencies {
     api(project(":modules:plugin-context"))
 
     // https://mvnrepository.com/artifact/org.springframework/spring-context
-    implementation("org.springframework:spring-context:6.0.4")
+    implementation("org.springframework:spring-context:6.0.5")
 }
