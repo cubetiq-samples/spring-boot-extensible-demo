@@ -1,0 +1,12 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/flowable}
+    username: ${DB_USERNAME:flowable}
+    password: ${DB_PASSWORD:flowable}
+flowable:
+  app:
+    enabled: true
