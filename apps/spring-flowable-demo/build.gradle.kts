@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.flowable:flowable-spring-boot-starter:6.8.0")
+    implementation("org.flowable:flowable-spring-boot-starter:7.0.1")
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")
